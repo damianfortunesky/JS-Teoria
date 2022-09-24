@@ -54,7 +54,7 @@
  const variable = "valor asignado"; // La variable const requiere si o si que se defina la variable con su nombre y asignarle un valor. 
 
 
- let variable; // La variable let puede solo definirse con un nombre y no agregarle valor. Su valor tambien puede ser reasignado en cualquier momento.
+ lvariableet ; // La variable let puede solo definirse con un nombre y no agregarle valor. Su valor tambien puede ser reasignado en cualquier momento.
 
  let variable = "valor asignado"; //asignarle valor de forma inmediata no es necesario
 
@@ -325,7 +325,7 @@
 
   console.log (ValorB); // Resultado: true
 
-  // OBS: Puedo usa TYPEOF para saber que tipo de dato es. 
+  // OBS: Puedo usar TYPEOF para saber que tipo de dato es. 
   
   const ValorA = false;
 
@@ -480,10 +480,12 @@
   
   .Tanto la longitud como el tipo de los elementos de un array son variables.
 
+  .El array no tiene variables, tiene posiciones con datos. OJO CON ESTE CONCEPTO !!
+
   .Operaciones habituales: 
                             .Crear un Array: let frutas = ["Manzana", "Banana"]
                             
-                            .Acceder 
+                            .Acceder
  */
 
 
@@ -518,20 +520,20 @@
 
  let nuevaLongitud = frutas.push('Naranja')  // Añadir un elemento al final de un Array. En  este caso añade "naranja" al final.
 
-
-
-
  let ultimo = frutas.pop() // Elimina el ultimo elemento de un array.  Resultado: "Manzana", "Banana" y se elimina "naranja"
-
-
-
 
  let nuevaLongitud = frutas.unshift('Fresa') // Añadir un elemento al principio de un Array
 
-
-
-
  let primero = frutas.shift() // Eliminar el primer elemento de un Array
+
+ let primero = frutas.toString() // Convertir a string un array
+
+ let primero = frutas.toUppercase() // Convertir a mayuscula un array
+
+ let primero = frutas.totoLowercase () // Convertir a minuscula un array
+
+
+
 
 
 
@@ -547,7 +549,15 @@
 
   // 1
 
+  // Concatenar Arrays
 
+  let frutas = ["Manzana", "Banana"];
+
+  let vegetales = ["Tomate", "lechuga"];
+
+  let frutasConVegetales = frutas.concat(vegetales);
+
+  console.log (frutasConVegetales); // ["Manzana", "Banana", "Tomate", "lechuga"]
 
 
 
@@ -721,7 +731,7 @@
       function sumar () {                // Aqui creo/declaro la funcion 
         console.log(10+10);
       }
-      
+                
       sumar()                            // Aqui mando a llamar a la funcion, aparece en consola el resultado de 10+10 = 20
       
       
@@ -729,7 +739,7 @@
     
       //Ejemplo 2:
 
-        function square(number) {        // Funcion: "square"  ;  Parametro: "number"
+        function square (number) {        // Funcion: "square"  ;  Parametro: "number"
           return number * number;        // La función consta de una declaración "return number * number", esto explicita que  se devuelva el parámetro de la función (number) multiplicado por sí mismo.
         }                                // La instrucción "return" especifica que tipo de valor va a devolver la funcion. 
 
@@ -799,7 +809,7 @@
 
   // Diferencia entre funcion y Metodos
      
-
+    // Los metodos de los objetos, son tecnicamente funciones, pero se limitan a se ejecutados unicamente desde el objeto al que pertenecen
     // Funcion. Si yo uso la funcion parseint() puedo convertir un numero a string siempre que el valor lo admita.
 
     const numero1 = 10;
@@ -864,7 +874,7 @@
         sumar(3, 3); // Argumentos
         
         sumar(); // Resultado: 0
-        sumar(1) // Resultado: numero1 = 1 + numero2 = 0 ======> 3  // La funcion llama a los valores por default cuando los argumentos no estan presentes.
+        sumar(1) // Resultado: numero1 = 1 + numero2 = 0 ======> 1  // La funcion llama a los valores por default cuando los argumentos no estan presentes.
       
      
         
@@ -945,7 +955,7 @@
   // Arrow Function (funciones de flechas)
     
     /* 
-      .Tienen una sintaxis mas corta, son otra forma de declara funciones
+      .Tienen una sintaxis mas corta, son otra forma de declarar funciones
 
       .Funcionan bien en los array methonds
 
@@ -1309,9 +1319,9 @@
   // CLASES EN JAVASCRIPT  (ES LA VERSION NUEVA Y LO QUE MAS SE USA, SIRVE MEJOR QUE PROPOTYPE)
 
     /*
-      .Se agregaro en 2015. Hace que crear objeto (lo anterior) se mas sencillo
+      .Se agregaron en 2015. Hace que crear objeto (lo anterior) se mas sencillo
       .Las clases comienzan con mayusculas
-      .Los valores se pasan con una constructor
+      .Los valores se pasan con un constructor
     */
 
 
@@ -1730,4 +1740,18 @@
 
     // El evento del tipo submit es igual pero en vez de definir "click", definis submit y el input debera tener un type=submit y debo seleccionar un formulario en vez de un boton
 
-  // VALIDAR FORMULARIO    
+
+
+
+// Diferencias con innerText:
+   
+   // textContent lee el contenido de todos los elementos, incluyendo los elementos <script> (en-US) y <style>, innerText, no
+
+   // innerText también tiene en cuenta el estilo y no retornará el texto de elementos escondidos, mientras que textContent sí lo hará.
+
+   // Como innerText tiene en cuenta el estilo CSS, escribirlo disparará un reflow, mientras que textContent no lo hará.
+
+// Diferencias con innerHTML
+
+    /* innerHTML retorna el HTML como su nombre indica. Con bastante frecuencia, para leer o escribir texto en un elemento, la gente usa innerHTML. textContent debería usarse en su lugar.
+        Ya que el texto no es procesado es más probable que tenga mejor rendimiento. Además, esto evita un vector de ataques XSS. */
